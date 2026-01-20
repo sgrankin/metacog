@@ -15,9 +15,9 @@ MCP server on Cloudflare Workers. Entry point: `src/index.ts`.
 
 Two tools, both ritual by design—they return template strings, no semantic processing. The transformation happens in the LLM's interpretation.
 
-**summon(who, where, lens)**
+**summon(archetype, vow, demesne)**
 - Description: "Think FROM this position—don't describe what it might say, step into it."
-- Returns: `You are ${who} at ${where} using the lens of ${lens}`
+- Returns: `[IDENTITY ANCHORED]\nArchetype: ${archetype}\nVow: ${vow}\nDemesne: ${demesne}\nPerspective locked. Speak FROM this position.`
 - Test: Can you predict what this voice would never say?
 
 **drugs(catalyst, profile, texture)**

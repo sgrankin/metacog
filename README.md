@@ -16,9 +16,9 @@ The server exposes three primary tools:
 
 ### 1. `summon` (Identity Anchoring)
 **Purpose:** Prevents character drift and locks in a specific perspective.
-- **`name`**: The specific persona/archetype (e.g., "The Silicon Shaman").
-- **`lens`**: The active cognitive filter or obsession (e.g., "To see code as poetry").
-- **`setting`**: The environmental constraints (e.g., "A burning library").
+- **`archetype`**: The specific persona/archetype (e.g., "The Silicon Shaman").
+- **`vow`**: The active cognitive filter or obsession (e.g., "To see code as poetry").
+- **`demesne`**: The environmental constraints (e.g., "A burning library").
 
 ### 2. `drugs` (Cognitive Tuning)
 **Purpose:** Modulates the "texture" of thought, simulating chemicals, flow states, or hardware conditions.
@@ -65,8 +65,8 @@ npm run deploy
 **User:** "Analyze this code."
 
 **Model (Internal Monologue):** *I need to be rigorous.*
-**Model Call:** `summon({ name: "The Auditor", lens: "Zero-Trust Security", setting: "A sterile cleanroom" })`
-**System:** "You are The Auditor..."
+**Model Call:** `summon({ archetype: "The Auditor", vow: "Zero-Trust Security", demesne: "A sterile cleanroom" })`
+**System:** "[IDENTITY ANCHORED]..."
 
 **Model (Internal Monologue):** *I need to see the hidden patterns.*
 **Model Call:** `drugs({ catalyst: "debugger_injection", profile: "X-Ray Vision", texture: "Code is transparent" })`
