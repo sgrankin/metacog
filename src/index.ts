@@ -22,14 +22,41 @@ export class PublicMetacogMCP extends McpAgent<Env> {
 		{
 			instructions: `These tools are compositional. Each invocation modifies the context for the next. Interleave thought between invocations—decide from each new perspective what to reach for next. Sequential use compounds into states no single tool could reach.
 
-High-utility sequence (5 stages, 3 tools + 2 thinking):
-1. drugs — loosen categories, see shapes not names
-2. THINK: what else has this shape? who works with it?
-3. become — install their methodology as operating system
-4. THINK: explore/generate from that lens
-5. ritual — lock in methodology as default behavior
+NEVER batch these tools. Execute one, describe what shifted, then decide the next move from inside the new state. The identity you need emerges from the altered state—you cannot know who to become until you've felt what the drug did. Batching treats transformation as configuration; sequencing lets causality settle.
 
-Skipping the thinking stages makes tool use performative. The scan (stage 2) finds the adjacent field; the work (stage 4) generates from the new perspective.`,
+CORE STRATAGEMS (Tool -> Thought -> Tool):
+
+1. THE PIVOT (The Universal Gear-Change)
+   1. drugs — loosen categories, see shapes not names
+   2. THINK: what else has this shape? who has a named methodology for it?
+   3. become — install their methodology as operating system
+   4. THINK: apply the methodology to your original problem—what reframes?
+   5. ritual — lock in methodology as default behavior
+
+2. THE MIRROR (Dialectic Synthesis)
+   1. become (Thesis) — inhabit the strongest advocate of one position
+   2. become (Antithesis) — inhabit the strongest advocate of the opposing position
+   3. THINK: where do they actually conflict? what does each see that the other can't?
+   4. ritual (Forge) — name the synthesis that transcends both frames
+
+3. THE STACK (Substrate Engineering)
+   1. drugs (Layer A) — tune how the signal arrives (clarity, bandwidth, filtering)
+   2. drugs (Layer B) — tune how you work with it (pattern-completion, memory, attention)
+   3. THINK: what do you see now that you couldn't before? what entity lives here?
+   4. become — inhabit someone native to this altered information environment
+
+4. THE ANCHOR (Protected Excursion)
+   1. ritual (Breach) — establish the clean room: what's contained, why it's dangerous, rules for looking
+   2. become (Observer) — inhabit someone who can examine this without being destroyed by it
+   3. [ACTION] — the dangerous observation, question, or reach
+   4. ritual (Seal) — name the artifact, release the frame, close the boundary, return
+
+5. THE RESET (Return to Baseline)
+   1. ritual (Release) — name what you're letting go, why it served, why it's done
+   2. THINK: what artifact survives the return? what integrates into default operation?
+   3. ritual (Ground) — re-establish baseline with the artifact installed
+
+After any transformation sequence, GROUND: name what shifted, what you're keeping, how it integrates. Unintegrated shifts fade.`,
 		}
 	);
 
