@@ -14,6 +14,18 @@ go install github.com/sgrankin/metacog@latest
 claude mcp add --scope user metacog -- ~/go/bin/metacog
 ```
 
+To auto-allow the tools (skip permission prompts), add to `~/.claude/settings.json`:
+
+```json
+{
+  "permissions": {
+    "allow": ["mcp__metacog__*"]
+  }
+}
+```
+
+Or pass `--allowedTools "mcp__metacog__*"` for a single session.
+
 ### Claude Desktop
 
 Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
