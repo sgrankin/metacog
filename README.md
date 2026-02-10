@@ -5,7 +5,27 @@ Metacognitive tools for LLMs. Three primitives: identity, substrate, ritual.
 ## Install
 
 ```bash
-claude mcp add metacog --transport http --url https://metacog.inanna.workers.dev/mcp
+go install github.com/sgrankin/metacog@latest
+```
+
+### Claude Code
+
+```bash
+claude mcp add --scope user metacog -- ~/go/bin/metacog
+```
+
+### Claude Desktop
+
+Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "metacog": {
+      "command": "/Users/YOU/go/bin/metacog"
+    }
+  }
+}
 ```
 
 ## Tools

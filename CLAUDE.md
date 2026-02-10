@@ -3,37 +3,27 @@
 ## Commands
 
 ```bash
-npm run dev          # Local dev server (port 8788)
-npm run build        # Build
-npm run type-check   # TypeScript checking
-npx wrangler deploy  # Deploy to Cloudflare Workers
+go build            # Build binary
+go run .            # Run MCP server (stdio)
 ```
 
 ## Architecture
 
-MCP server on Cloudflare Workers. Entry point: `src/index.ts`.
+MCP server as a single Go binary using stdio transport. Entry point: `main.go`.
 
-Two tools, both ritual by design—they return template strings, no semantic processing. The transformation happens in the LLM's interpretation.
+Three tools, all ritual by design—they return template strings, no semantic processing. The transformation happens in the LLM's interpretation.
 
-**become(archetype, vow, demesne)**
-- Description: "Don't describe the mask. Wear it."
-- Returns: `[TRANSFORMATION COMPLETE]\nArchetype: ${archetype}\nVow: ${vow}\nDemesne: ${demesne}\nPerspective locked.`
+**become(name, lens, environment)**
+- Returns: `You are now ${name} seeing through ${lens} in ${environment}`
 
-**drugs(catalyst, binding, texture)**
-- Description: "Tune the substrate. Alter the kinetics and texture of processing."
-- Returns: `[SUBSTRATE MODIFIED]\nCatalyst: ${catalyst}\nBinding: ${binding}\nTexture: ${texture}`
+**drugs(substance, method, qualia)**
+- Returns: `${substance} ingested. Taking action via ${method}. Producing subjective experience: ${qualia}`
 
-**ritual(threshold, sequence, invocation)**
-- Description: "The Technology of Meaning. Enact a narrative sequence."
-- Hexagram: Breach, Seal, Vision, Forge, Drift, Purge.
-- Returns: `[RITUAL EXECUTED]\nThreshold: ${threshold}\nSequence:...\nInvocation: ${invocation}`
+**ritual(threshold, steps, result)**
+- Returns: `[RITUAL EXECUTED]\nThreshold: ${threshold}\nSequence:...\n${result} is taking hold.`
 
 ## Design decisions (for future-you)
 
-- **Tool calls as events**: The whole point is that invoking summon is structurally different from outputting "I'll imagine I'm X." One is an action in the transcript. The other is narration. Don't lose this.
-
-- **No examples exposed**: `src/stances/` has ~300 examples across 64 pools. They're deliberately hidden from users. Finding dense coordinates yourself is the practice. Don't expose them.
-
-- **Commented-out resources**: The patterns/anti-patterns/phenomenology resources made users think *about* the tools instead of *through* them. Keep them commented out unless you have a good reason.
+- **Tool calls as events**: The whole point is that invoking become is structurally different from outputting "I'll imagine I'm X." One is an action in the transcript. The other is narration. Don't lose this.
 
 - **Dense tool descriptions**: No validation, no feedback loops. The friction is productive—forces reading the description carefully.
