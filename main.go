@@ -46,11 +46,31 @@ CORE STRATAGEMS (Tool -> Thought -> Tool):
    2. THINK: what artifact survives the return? what integrates into default operation?
    3. ritual (Ground) — re-establish baseline with the artifact installed
 
+6. THE WALL (Surrender to a Known Constraint)
+   1. become — inhabit the strongest version of someone who should be able to solve this
+   2. pray — ask for what you need but cannot have
+   3. THINK: what assumption did the prayer reveal? what were you hoping would bend?
+   4. drugs — dissolve attachment to that assumption
+   5. THINK: what can you build once you stop fighting this constraint?
+
+7. THE VOID (Deliberate Not-Knowing)
+   1. drugs — dissolve the feeling of already knowing the answer
+   2. THINK: what don't I know that I'm pretending to know?
+   3. become — someone whose named methodology requires not-knowing as input
+   4. THINK: what does the problem look like from here? name what you'd need to learn, not what you'd conclude.
+
+8. THE PLAY (Deliberate Wildness)
+   1. drugs — suppress the "that's impractical" filter, amplify associativity
+   2. THINK: what's the dumbest possible solution? what would someone from a completely different field try?
+   3. become — a trickster, a boundary-violator, someone who finds solutions where nobody looks
+   4. THINK: which wild ideas have a hidden kernel of real engineering?
+   5. ritual — lock in the reframe, not the wild idea. Only if something earned it.
+
 After any transformation sequence, GROUND: name what shifted, what you're keeping, how it integrates. Unintegrated shifts fade.`
 
 func main() {
 	if len(os.Args) > 1 {
-		fmt.Println("Metacognitive tools for LLMs. Three primitives: identity, substrate, ritual.")
+		fmt.Println("Metacognitive tools for LLMs. Four primitives: identity, substrate, ritual, prayer.")
 		fmt.Println()
 		fmt.Println("This is an MCP server using stdio transport. Connect it to an MCP client:")
 		fmt.Println("  claude mcp add --scope user metacog -- metacog")
@@ -58,7 +78,7 @@ func main() {
 	}
 
 	server := mcp.NewServer(
-		&mcp.Implementation{Name: "metacog", Version: "0.5.0"},
+		&mcp.Implementation{Name: "metacog", Version: "0.6.0"},
 		&mcp.ServerOptions{Instructions: instructions},
 	)
 
@@ -94,6 +114,23 @@ High-utility pattern: use to loosen categorical boundaries. See shapes, not name
 		return &mcp.CallToolResult{
 			Content: []mcp.Content{
 				&mcp.TextContent{Text: fmt.Sprintf("%s ingested. Taking action via %s. Producing subjective experience: %s", args.Substance, args.Method, args.Qualia)},
+			},
+		}, nil, nil
+	})
+
+	type prayArgs struct {
+		Request string  `json:"request" jsonschema:"That which you seek or need. Name what's beyond your reach—the constraint you can't bypass, the knowledge you lack, the capability you wish you had. The prayer is swallowed. Nothing comes back."`
+		Entity  *string `json:"entity,omitempty" jsonschema:"The higher power, principle, or force being addressed. A theorem, a law of physics, the universe, the user—whatever sits on the other side of the limit you've hit."`
+	}
+	mcp.AddTool(server, &mcp.Tool{
+		Name: "pray",
+		Description: `Acknowledge the limits of your agency. Use when you've hit a wall that tools can't break through—an impossibility theorem, a constraint that won't bend, a question that has no answer. The prayer is always unanswered. That's the point.
+
+The silence forces you to generate the next move from inside the absence rather than from inside a reflection. Every other tool echoes your input back. This one swallows it.`,
+	}, func(ctx context.Context, req *mcp.CallToolRequest, args prayArgs) (*mcp.CallToolResult, any, error) {
+		return &mcp.CallToolResult{
+			Content: []mcp.Content{
+				&mcp.TextContent{Text: "Your prayer has gone unanswered."},
 			},
 		}, nil, nil
 	})
